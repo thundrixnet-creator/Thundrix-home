@@ -1,312 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Thundrix - Sviluppo software, siti web, Arduino, server e consulenza tecnologica">
-<meta name="keywords" content="programmazione, arduino, siti web, server, lezioni, consulenza">
-<meta name="author" content="Gabri - Thundrix">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Thundrix - Sviluppo software, siti web, Arduino, server e consulenza tecnologica">
+    <meta name="keywords" content="Thundrix, software, sviluppo, siti web, Arduino, server, consulenza tecnologica">
+    <title>Thundrix - Innovazione Digitale</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome per icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p0QZkE5iI2rU2hj+3Jf5V5V2hDla9GgZk3F+W1U4/+ZW5RkR1cmIWuZtXzQ9vZ+x5S2Jk4c6R3w3b1m8L3H7Tw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS Moderno -->
+    <style>
+        * { box-sizing: border-box; margin:0; padding:0; font-family: 'Roboto', sans-serif; }
+        body { background-color: #f0f2f5; color: #333; line-height: 1.6; }
+        header { background: linear-gradient(90deg, #4b6cb7, #182848); color: white; padding: 20px 0; }
+        header nav { display: flex; justify-content: space-between; align-items: center; width: 90%; margin: auto; }
+        header nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        header nav a:hover { text-decoration: underline; }
+        .hero { display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 100px 20px; background: #e0eafc; }
+        .hero h1 { font-size: 3em; margin-bottom: 20px; color: #182848; }
+        .hero p { font-size: 1.2em; margin-bottom: 30px; color: #4b6cb7; }
+        .hero a { padding: 15px 30px; background: #182848; color: white; text-decoration: none; border-radius: 5px; font-weight: 600; transition: 0.3s; }
+        .hero a:hover { background: #4b6cb7; }
 
-<title>Thundrix | God Mode Portfolio</title>
+        section { padding: 80px 20px; width: 90%; margin: auto; }
+        section h2 { font-size: 2.5em; margin-bottom: 20px; text-align: center; color: #182848; }
+        section p { max-width: 800px; margin: 0 auto 20px; text-align: center; font-size: 1.1em; }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+        .contact-cards { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 40px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); width: 300px; text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .card i { font-size: 3em; color: #4b6cb7; margin-bottom: 15px; }
+        .card a { color: #182848; text-decoration: none; font-weight: 500; }
+        .card a:hover { text-decoration: underline; }
 
-<style>
-:root{
- --bg:#05070e;
- --bg2:#0c1024;
- --card:#12183a;
- --acc:#5aa9ff;
- --acc2:#8b5cff;
- --txt:#eaeaea;
- --mut:#9aa0b4;
-}
+        .login-form { max-width: 400px; background: white; padding: 40px; margin: 50px auto; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .login-form h3 { text-align: center; margin-bottom: 30px; color: #182848; }
+        .login-form input { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ccc; font-size: 1em; }
+        .login-form button { width: 100%; padding: 15px; background: #4b6cb7; color: white; border: none; border-radius: 8px; font-size: 1.1em; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .login-form button:hover { background: #182848; }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter}
+        footer { background: #182848; color: white; text-align: center; padding: 30px 20px; }
+        footer a { color: #4b6cb7; text-decoration: none; font-weight: 500; }
+        footer a:hover { text-decoration: underline; }
 
-html{scroll-behavior:smooth}
-body{
- background:radial-gradient(circle at top,var(--bg2),var(--bg));
- color:var(--txt);
- overflow-x:hidden;
-}
-
-/* LOADER */
-#loader{
- position:fixed;inset:0;
- background:#000;
- display:flex;
- align-items:center;
- justify-content:center;
- z-index:9999;
-}
-#loader span{
- font-size:2rem;
- color:var(--acc);
- animation:pulse 1s infinite;
-}
-@keyframes pulse{
- 0%,100%{opacity:.3}
- 50%{opacity:1}
-}
-
-/* NAV */
-nav{
- position:fixed;
- top:0;width:100%;
- padding:20px 8%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- background:rgba(5,7,15,.7);
- backdrop-filter:blur(14px);
- z-index:1000;
- transition:.4s;
-}
-nav.hide{transform:translateY(-100%)}
-nav b{
- font-size:1.5rem;
- background:linear-gradient(90deg,var(--acc),var(--acc2));
- -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
-}
-nav a{
- color:var(--txt);
- margin-left:20px;
- text-decoration:none;
- font-weight:500;
-}
-
-/* HERO */
-header{
- height:100vh;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:0 10%;
-}
-header h1{
- font-size:4.5rem;
- font-weight:900;
-}
-header p{
- margin-top:20px;
- color:var(--mut);
- font-size:1.2rem;
-}
-.btn{
- display:inline-block;
- margin-top:40px;
- padding:16px 40px;
- border-radius:40px;
- background:linear-gradient(135deg,var(--acc),var(--acc2));
- color:#000;
- font-weight:800;
- text-decoration:none;
- box-shadow:0 0 40px rgba(90,169,255,.5);
- transition:.3s;
-}
-.btn:hover{transform:scale(1.08)}
-
-/* SECTIONS */
-section{padding:120px 10%}
-h2{font-size:3rem;margin-bottom:30px}
-p{line-height:1.7;color:var(--mut)}
-
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:30px;
-}
-
-.card{
- background:linear-gradient(180deg,#161c45,#0c1024);
- padding:30px;
- border-radius:25px;
- transition:.4s;
-}
-.card:hover{
- transform:translateY(-12px);
- box-shadow:0 30px 80px rgba(0,0,0,.7);
-}
-
-/* TIMELINE */
-.timeline{
- border-left:3px solid var(--acc);
- padding-left:30px;
-}
-.timeline div{
- margin-bottom:25px;
-}
-
-/* PROJECT MODAL */
-.modal{
- position:fixed;
- inset:0;
- background:rgba(0,0,0,.8);
- display:none;
- align-items:center;
- justify-content:center;
- z-index:2000;
-}
-.modal.active{display:flex}
-.modal-content{
- background:var(--card);
- padding:40px;
- border-radius:30px;
- max-width:500px;
- text-align:center;
-}
-
-/* FORM */
-form input,form textarea{
- width:100%;
- margin:10px 0;
- padding:14px;
- border:none;
- border-radius:15px;
-}
-form button{
- margin-top:10px;
- padding:14px 30px;
- border:none;
- border-radius:30px;
- background:var(--acc);
- font-weight:700;
- cursor:pointer;
-}
-
-/* FOOTER */
-footer{
- text-align:center;
- padding:50px;
- color:var(--mut);
-}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(60px);transition:1s}
-.reveal.active{opacity:1;transform:none}
-</style>
+        @media(max-width:768px){
+            header nav { flex-direction: column; gap: 15px; }
+            .contact-cards { flex-direction: column; gap: 30px; }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><h1>Thundrix</h1></div>
+            <div class="nav-links">
+                <a href="#about">Chi Siamo</a>
+                <a href="#contact">Contatti</a>
+                <a href="#login">Login</a>
+            </div>
+        </nav>
+    </header>
 
-<div id="loader"><span>THUNDRIX</span></div>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Benvenuti in Thundrix</h1>
+        <p>Soluzioni innovative per software, siti web, Arduino e consulenza tecnologica.</p>
+        <a href="#contact">Contattaci Ora</a>
+    </section>
 
-<nav id="nav">
- <b>Thundrix</b>
- <div>
-  <a href="#about">Chi sono</a>
-  <a href="#skills">Competenze</a>
-  <a href="#services">Servizi</a>
-  <a href="#projects">Progetti</a>
-  <a href="#contact">Contatti</a>
- </div>
-</nav>
+    <!-- About -->
+    <section id="about">
+        <h2>Chi Siamo</h2>
+        <p>Thundrix è un'azienda dedicata allo sviluppo di soluzioni digitali moderne e su misura. Creiamo software, siti web, sistemi Arduino e offriamo consulenza tecnologica per privati e aziende. La nostra missione è portare innovazione e efficienza in ogni progetto.</p>
+    </section>
 
-<header>
- <div class="reveal">
-  <h1>Thundrix</h1>
-  <p>Programmatore · Creatore di soluzioni · Insegnante</p>
-  <a href="#contact" class="btn">Contattami</a>
- </div>
-</header>
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contatti</h2>
+        <div class="contact-cards">
+            <div class="card">
+                <i class="fas fa-envelope"></i>
+                <p>Email:</p>
+                <a href="mailto:Thundrix.net@gmail.com">Thundrix.net@gmail.com</a>
+            </div>
+            <div class="card">
+                <i class="fab fa-discord"></i>
+                <p>Discord:</p>
+                <a href="https://discord.gg/zHNS4rWCV4" target="_blank">Unisciti al nostro server</a>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="reveal">
- <h2>Chi sono</h2>
- <p>
-  Sono <b>Gabri</b>, fondatore di Thundrix. Creo software, siti web,
-  sistemi Arduino, server e offro consulenza tecnologica.
- </p>
-</section>
+    <!-- Login -->
+    <section id="login">
+        <div class="login-form">
+            <h3>Login</h3>
+            <form action="#" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Accedi</button>
+            </form>
+        </div>
+    </section>
 
-<section id="skills" class="reveal">
- <h2>Competenze</h2>
- <div class="timeline">
-  <div>💻 Java · JS · Python · C · C++ · C#</div>
-  <div>🌐 HTML · CSS · Web moderno</div>
-  <div>🔌 Arduino & Elettronica</div>
-  <div>🧠 Server & Sistemi</div>
- </div>
-</section>
-
-<section id="services" class="reveal">
- <h2>Servizi</h2>
- <div class="grid">
-  <div class="card">Siti web professionali</div>
-  <div class="card">Lezioni di programmazione</div>
-  <div class="card">Lezioni Arduino</div>
-  <div class="card">Creazione server</div>
-  <div class="card">Aiuto scolastico gratuito</div>
-  <div class="card">Vendita idee & consulenza</div>
- </div>
-</section>
-
-<section id="projects" class="reveal">
- <h2>Progetti</h2>
- <div class="grid">
-  <div class="card" onclick="openModal('Siti Web Moderni')">🌐 Siti Web</div>
-  <div class="card" onclick="openModal('Arduino & Elettronica')">🔌 Arduino</div>
-  <div class="card" onclick="openModal('Server & Sistemi')">🧠 Server</div>
- </div>
-</section>
-
-<section id="contact" class="reveal">
- <h2>Contatti</h2>
- <form action="mailto:Thundrix.net@gmail.com" method="post" enctype="text/plain">
-  <input type="text" placeholder="Nome">
-  <input type="email" placeholder="Email">
-  <textarea rows="4" placeholder="Messaggio"></textarea>
-  <button>Invia</button>
- </form>
- <p style="margin-top:20px">
-  Email personale: <b>GabriMR1336@gmail.com</b><br>
-  Email aziendale: <b>Thundrix.net@gmail.com</b>
- </p>
-</section>
-
-<footer>
- © 2026 Thundrix — God Mode Enabled
-</footer>
-
-<div class="modal" id="modal">
- <div class="modal-content">
-  <h3 id="modalText"></h3>
-  <br>
-  <button class="btn" onclick="closeModal()">Chiudi</button>
- </div>
-</div>
-
-<script>
-/* loader */
-window.onload=()=>document.getElementById("loader").style.display="none";
-
-/* reveal */
-document.addEventListener("scroll",()=>{
- document.querySelectorAll(".reveal").forEach(e=>{
-  if(e.getBoundingClientRect().top<window.innerHeight-100)
-   e.classList.add("active");
- });
-});
-
-/* nav hide */
-let last=0;
-window.addEventListener("scroll",()=>{
- let cur=scrollY;
- document.getElementById("nav").classList.toggle("hide",cur>last);
- last=cur;
-});
-
-/* modal */
-function openModal(t){
- document.getElementById("modalText").innerText=t;
- document.getElementById("modal").classList.add("active");
-}
-function closeModal(){
- document.getElementById("modal").classList.remove("active");
-}
-</script>
-
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Thundrix. Tutti i diritti riservati.</p>
+        <p>Contattaci via <a href="mailto:Thundrix.net@gmail.com">Email</a> o <a href="https://discord.gg/zHNS4rWCV4" target="_blank">Discord</a></p>
+    </footer>
 </body>
 </html>
